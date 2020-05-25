@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories\Items;
 
-use App\Interfaces\User\UserInterface;
+use App\Interfaces\Items\TitleInterface;
+use App\Models\Title;
 use App\Repositories\BaseRepository;
-use App\User as User;
 use Illuminate\Support\Collection;
 
-class UserRepository extends BaseRepository implements UserInterface
+class TitleRepository extends BaseRepository implements TitleInterface
 {
 
    /**
@@ -15,7 +15,7 @@ class UserRepository extends BaseRepository implements UserInterface
     *
     * @param User $model
     */
-   public function __construct(User $model)
+   public function __construct(Title $model)
    {
        parent::__construct($model);
    }

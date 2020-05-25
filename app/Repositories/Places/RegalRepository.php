@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories\Places;
 
-use App\Interfaces\User\UserInterface;
+use App\Interfaces\Places\RegalInterface;
+use App\Models\Regal;
 use App\Repositories\BaseRepository;
-use App\User as User;
 use Illuminate\Support\Collection;
 
-class UserRepository extends BaseRepository implements UserInterface
+class RegalRepository extends BaseRepository implements RegalInterface
 {
 
    /**
@@ -15,7 +15,7 @@ class UserRepository extends BaseRepository implements UserInterface
     *
     * @param User $model
     */
-   public function __construct(User $model)
+   public function __construct(Regal $model)
    {
        parent::__construct($model);
    }

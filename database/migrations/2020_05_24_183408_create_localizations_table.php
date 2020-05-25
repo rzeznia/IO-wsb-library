@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\ForeignKeyDefinition;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocalisationsTable extends Migration
+class CreateLocalizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateLocalisationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('localisations', function (Blueprint $table) {
+        Schema::create('localizations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('regal_id')->unsigned();
             $table->integer('shelf');
@@ -22,7 +22,7 @@ class CreateLocalisationsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('localisations', function (Blueprint $table) {
+        Schema::table('localizations', function (Blueprint $table) {
             $table->foreign('regal_id')->references('id')->on('regals');
         });
     }
@@ -34,9 +34,9 @@ class CreateLocalisationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('localisations', function (Blueprint $table) {
-            $table->dropForeign('localisations_regal_id_foreign');
+        Schema::table('localizations', function (Blueprint $table) {
+            $table->dropForeign('localizations_regal_id_foreign');
         });
-        Schema::dropIfExists('localisations');
+        Schema::dropIfExists('localizations');
     }
 }

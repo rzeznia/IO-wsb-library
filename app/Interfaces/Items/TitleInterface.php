@@ -1,10 +1,10 @@
 <?php
-namespace App\Interfaces\User;
+namespace App\Interfaces\Items;
 
 use App\User;
 use Illuminate\Support\Collection;
 
-interface UserInterface
+interface TitleInterface
 {
 
 }

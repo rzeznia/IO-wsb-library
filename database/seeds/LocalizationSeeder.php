@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Localisation;
+use App\Models\Localization;
 use App\Models\Regal;
 use Illuminate\Database\Seeder;
 
-class LocalisationSeeder extends Seeder
+class LocalizationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class LocalisationSeeder extends Seeder
             while($shelf < 10){
                 $position = 1;
                 while($position < 10){
-                    $loc = new Localisation();
+                    $loc = new Localization();
                     $loc->regal_id = $regal->id;
                     $loc->shelf = $shelf;
                     $loc->position = $position;
@@ -28,7 +28,7 @@ class LocalisationSeeder extends Seeder
                 }
                 $shelf += 1;
             }
-            
+
         }
     }
 }
