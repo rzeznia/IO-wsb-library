@@ -15,9 +15,9 @@ class ReleaseController extends Controller
     }
 
     function index(){
-        $releases = $this->release_interface->all();
-        dd($releases);
-        // return view('contents.user.index', compact('users'));
+        $releases = $this->release_interface->getFullReleases();
+        // dd($releases);
+        return view('contents.release.index', compact('releases'));
     }
 }
 

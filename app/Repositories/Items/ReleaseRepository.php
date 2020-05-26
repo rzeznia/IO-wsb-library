@@ -24,4 +24,9 @@ class ReleaseRepository extends BaseRepository implements ReleaseInterface
     * @return Collection
     */
 
+    public function getFullReleases(): ?Collection
+    {
+        return Release::with('title.author')->with('publisher')->get();
+    }
+
 }

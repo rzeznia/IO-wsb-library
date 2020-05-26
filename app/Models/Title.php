@@ -24,5 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Title extends Model
 {
-    //
+    public function author(){
+        return $this->hasOne(Author::class, 'id', 'author_id');
+    }
 }

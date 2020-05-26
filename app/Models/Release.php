@@ -32,5 +32,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Release extends Model
 {
-    //
+    public function title(){
+        return $this->hasOne(Title::class, 'id', 'title_id');
+    }
+
+    public function publisher(){
+        return $this->hasOne(Publisher::class, 'id', 'publisher_id');
+    }
 }

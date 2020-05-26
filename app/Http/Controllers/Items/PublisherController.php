@@ -16,8 +16,8 @@ class PublisherController extends Controller
 
     function index(){
         $publishers = $this->publisher_interface->all();
-        dd($publishers);
-        // return view('contents.user.index', compact('users'));
+        // dd($publishers);
+        return view('contents.publisher.index', compact('publishers'));
     }
 }
 

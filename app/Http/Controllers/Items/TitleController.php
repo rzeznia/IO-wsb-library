@@ -15,9 +15,9 @@ class TitleController extends Controller
     }
 
     function index(){
-        $titles = $this->title_interface->all();
-        dd($titles);
-        // return view('contents.user.index', compact('users'));
+        $titles = $this->title_interface->all()->load('author');
+        // dd($titles);
+        return view('contents.title.index', compact('titles'));
     }
 }
 

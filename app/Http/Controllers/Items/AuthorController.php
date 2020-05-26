@@ -16,8 +16,8 @@ class AuthorController extends Controller
 
     function index(){
         $authors = $this->author_interface->all();
-        dd($authors);
-        // return view('contents.user.index', compact('users'));
+        // dd($authors);
+        return view('contents.author.index', compact('authors'));
     }
 }
 

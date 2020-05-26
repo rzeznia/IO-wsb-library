@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link {{Route::is('title.*') ? 'active' : ''}}" href="{{route('author.index')}}">
+            <a class="nav-link {{Route::is('author.*') ? 'active' : ''}}" href="{{route('author.index')}}">
                 <i class="fa fa-address-book-o"></i>
                 Authors <span class="sr-only">(current)</span>
             </a>
@@ -25,7 +25,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link {{Route::is('title.*') ? 'active' : ''}}" href="{{route('release.index')}}">
+            <a class="nav-link {{Route::is('release.*') ? 'active' : ''}}" href="{{route('release.index')}}">
                 <i class="fa fa-paperclip"></i>
                 Releases <span class="sr-only">(current)</span>
             </a>
