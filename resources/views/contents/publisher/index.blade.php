@@ -5,6 +5,9 @@ Manage Publishers
 @endsection
 
 @section('content')
+    <div class="buttons-grid">
+        <a class="btn btn-sm btn-success" href="{{ route('publisher.add') }}">Add new publisher</a>
+    </div>
     @if(count($publishers) > 0)
         <table class="table table-hover">
             <thead>
@@ -20,7 +23,9 @@ Manage Publishers
                         <td>{{$loop->iteration}}</td>
                         <td>{{$publisher->name}}</td>
                         <td>{{$publisher->created_at}}</td>
-                        <td></td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ route('publisher.edit', $publisher->id) }}">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

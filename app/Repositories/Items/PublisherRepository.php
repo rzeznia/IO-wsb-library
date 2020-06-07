@@ -19,4 +19,11 @@ class PublisherRepository extends BaseRepository implements PublisherInterface
    {
        parent::__construct($model);
    }
+
+   public function checkIsPublisherExists($data): bool
+   {
+        $res = $this->model->where('name', $data['name'])->first();
+        $bool = ($res) ? true : false;
+        return $bool;
+   }
 }
