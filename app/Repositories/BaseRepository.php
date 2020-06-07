@@ -46,4 +46,11 @@ class BaseRepository implements EloquentBaseInterface
     {
         return $this->model->all();
     }
+
+    public function update($data, $id): ?Model{
+        $model = $this->model->find($id);
+        $model->fill($data);
+        $model->save();
+        return $model;
+    }
 }

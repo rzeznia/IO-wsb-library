@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Title extends Model
 {
+    protected $fillable = ['title', 'author_id'];
+
     public function author(){
         return $this->hasOne(Author::class, 'id', 'author_id');
     }

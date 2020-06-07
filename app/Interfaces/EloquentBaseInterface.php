@@ -21,4 +21,6 @@ interface EloquentBaseInterface
     * @return Model
     */
    public function find($id): ?Model;
+
+   public function update($data, $id): ?Model;
 }

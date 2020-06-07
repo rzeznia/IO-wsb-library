@@ -22,7 +22,9 @@ Manage Authors
                 <td>{{$author->name}}</td>
                 <td>{{$author->surname}}</td>
                 <td>{{$author->country}}</td>
-                <td></td>
+                <td>
+                    <a class="btn btn-sm btn-outline-primary" href="{{ route('author.edit', $author->id) }}">Edit</a>
+                </td>
             </tr>
         @endforeach
     </table>

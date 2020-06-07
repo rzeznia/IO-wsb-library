@@ -5,6 +5,9 @@ Manage Titles
 @endsection
 
 @section('content')
+    <div class="buttons-grid">
+        <a class="btn btn-sm btn-success" href="{{ route('title.add') }}">Add new title</a>
+    </div>
     <table class="table table-hover">
         <thead>
             <td>No</td>
@@ -20,7 +23,9 @@ Manage Titles
                     <td>{{$title->title}}</td>
                     <td>{{$title->author->name}} {{$title->author->surname}}</td>
                     {{-- <td>{{$author->nationality}}</td> --}}
-                    <td></td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('title.edit', $title->id) }}">Edit</a>
+                    </td>
                 </tr>
             @endforeach
     </tbody>

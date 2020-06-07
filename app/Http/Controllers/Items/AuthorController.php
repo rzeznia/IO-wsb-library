@@ -36,5 +36,24 @@ class AuthorController extends Controller
             return redirect()->route('author.index')->withErrors(['Author already exists']);
         }
     }
+
+    public function edit($id){
+        $author = $this->author_interface->find($id);
+        if($author)
+            return view('contents.author.edit', compact('author', 'id'));
+        else
+            return redirect()->route('title.index')->withErrors(['Unknown author!']);
+    }
+
+    public function save(AuthorRequest $req, $id){
+        $data = $req->validated();
+        if(!$this->author_interface->checkIsAuthorExists($data)){
+            $this->author_interface->update($data, $id);
+            return redirect()->route('author.index')->withSuccess(['Author edited successfully']);
+        }
+        else{
+            return redirect()->route('author.index')->withErrors(['Author already exists']);
+        }
+    }
 }
 

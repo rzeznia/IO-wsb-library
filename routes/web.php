@@ -14,12 +14,18 @@ Route::prefix('/user')->namespace('User')->name('user.')->group(function (){
 
 Route::prefix('/title')->namespace('Items')->name('title.')->group(function (){
     Route::get('/', 'TitleController@index')->name('index');
+    Route::get('/add', 'TitleController@add')->name('add');
+    Route::post('/add', 'TitleController@store')->name('store');
+    Route::get('/{id}/edit', 'TitleController@edit')->name('edit');
+    Route::post('/{id}/edit', 'TitleController@save')->name('save');
 });
 
 Route::prefix('/author')->namespace('Items')->name('author.')->group(function (){
     Route::get('/', 'AuthorController@index')->name('index');
     Route::get('/add', 'AuthorController@add')->name('add');
     Route::post('/add', 'AuthorController@store')->name('store');
+    Route::get('/{id}/edit', 'AuthorController@edit')->name('edit');
+    Route::post('/{id}/edit', 'AuthorController@save')->name('save');
 });
 
 Route::prefix('/release')->namespace('Items')->name('release.')->group(function (){
