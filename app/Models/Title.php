@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Title whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Title whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Author|null $author
  */
 class Title extends Model
 {

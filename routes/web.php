@@ -18,6 +18,8 @@ Route::prefix('/title')->namespace('Items')->name('title.')->group(function (){
 
 Route::prefix('/author')->namespace('Items')->name('author.')->group(function (){
     Route::get('/', 'AuthorController@index')->name('index');
+    Route::get('/add', 'AuthorController@add')->name('add');
+    Route::post('/add', 'AuthorController@store')->name('store');
 });
 
 Route::prefix('/release')->namespace('Items')->name('release.')->group(function (){

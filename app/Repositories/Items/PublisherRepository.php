@@ -19,9 +19,4 @@ class PublisherRepository extends BaseRepository implements PublisherInterface
    {
        parent::__construct($model);
    }
-
-   /**
-    * @return Collection
-    */
-
 }

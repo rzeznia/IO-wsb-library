@@ -46,5 +46,4 @@ class BaseRepository implements EloquentBaseInterface
     {
         return $this->model->all();
     }
-
-}
+}

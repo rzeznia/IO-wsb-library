@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Release whereTitleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Release whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Publisher|null $publisher
+ * @property-read \App\Models\Title|null $title
  */
 class Release extends Model
 {

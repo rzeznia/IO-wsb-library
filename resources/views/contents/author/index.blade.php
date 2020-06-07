@@ -5,6 +5,9 @@ Manage Authors
 @endsection
 
 @section('content')
+    <div class="buttons-grid">
+        <a class="btn btn-sm btn-success" href="{{route('author.add')}}">Add Author</a>
+    </div>
     <table class="table  table-hover">
         <tr>
             <td>No</td>
@@ -18,7 +21,7 @@ Manage Authors
                 <td>{{$loop->iteration}}</td>
                 <td>{{$author->name}}</td>
                 <td>{{$author->surname}}</td>
-                <td>{{$author->nationality}}</td>
+                <td>{{$author->country}}</td>
                 <td></td>
             </tr>
         @endforeach
