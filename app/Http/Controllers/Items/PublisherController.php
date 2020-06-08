@@ -29,7 +29,7 @@ class PublisherController extends Controller
     public function store(PublisherRequest $req){
         // dd($req);
         $data = $req->validated();
-        if(!$this->publisher_interface->checkIsPublisherExists($data)){
+        if(!$this->publisher_interface->checkIsRecordExists($data)){
             $this->publisher_interface->create($data);
             return redirect()->route('publisher.index')->withSuccess(['Author created successfully']);
         }
@@ -48,7 +48,7 @@ class PublisherController extends Controller
 
     public function save(PublisherRequest $req, $id){
         $data = $req->validated();
-        if(!$this->publisher_interface->checkIsPublisherExists($data)){
+        if(!$this->publisher_interface->checkIsRecordExists($data)){
             $this->publisher_interface->update($data, $id);
             return redirect()->route('publisher.index')->withSuccess(['Publisher edited successfully']);
         }
