@@ -31,7 +31,7 @@ class TitleController extends Controller
 
     public function store(TitleRequest $req){
         $data = $req->validated();
-        if(!$this->title_interface->checkIsTitleExists($data)){
+        if(!$this->title_interface->checkIsRecordExists($data)){
             $this->title_interface->create($data);
             return redirect()->route('title.index')->withSuccess(['Title created successfully']);
         }
@@ -50,7 +50,7 @@ class TitleController extends Controller
 
     public function save(TitleRequest $req, $id){
         $data = $req->validated();
-        if(!$this->title_interface->checkIsTitleExists($data)){
+        if(!$this->title_interface->checkIsRecordExists($data)){
             $this->title_interface->update($data, $id);
             return redirect()->route('title.index')->withSuccess(['Title edited successfully']);
         }

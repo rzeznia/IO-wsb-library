@@ -23,4 +23,6 @@ interface EloquentBaseInterface
    public function find($id): ?Model;
 
    public function update($data, $id): ?Model;
+
+   public function checkIsRecordExists($data): bool;
 }

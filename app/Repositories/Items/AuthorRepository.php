@@ -27,10 +27,7 @@ class AuthorRepository extends BaseRepository implements AuthorInterface
             if(!array_key_exists($value, $data))
                 return false;
         }
-        $res = $this->model->where('name', $data['name'])
-            ->where('surname', $data['surname'])
-            ->where('country', $data['country'])
-            ->first();
+        $res = $this->checkIsRecordExists($data);
         if(!$res){
             return false;
         }

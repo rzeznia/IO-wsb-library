@@ -19,15 +19,4 @@ class TitleRepository extends BaseRepository implements TitleInterface
    {
        parent::__construct($model);
    }
-
-   public function checkIsTitleExists(array $data): bool
-   {
-        $res = $this->model->where('title', $data['title'])
-            ->where('author_id', $data['author_id'])
-            ->first();
-        $bool = ($res) ? true : false;
-        return $bool;
-
-   }
-
 }

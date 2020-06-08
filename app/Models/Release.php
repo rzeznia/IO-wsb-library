@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Release extends Model
 {
+    protected $fillable = ['title_id', 'publisher_id', 'release', 'ISBN', 'price', 'pages'];
+
     public function title(){
         return $this->hasOne(Title::class, 'id', 'title_id');
     }

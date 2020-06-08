@@ -53,4 +53,15 @@ class BaseRepository implements EloquentBaseInterface
         $model->save();
         return $model;
     }
+
+    public function checkIsRecordExists($data): bool
+    {
+        $res = $this->model->where(function($q) use ($data){
+            foreach($data as $key => $value){
+                $q->where($key, $value);
+            }
+        })->first();
+        $bool = ($res) ? true : false;
+        return $bool;
+    }
 }
