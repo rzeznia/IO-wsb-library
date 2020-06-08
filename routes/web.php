@@ -38,6 +38,10 @@ Route::prefix('/release')->namespace('Items')->name('release.')->group(function 
 
 Route::prefix('/piece')->namespace('Items')->name('piece.')->group(function (){
     Route::get('/', 'PieceController@index')->name('index');
+    Route::get('/add', 'PieceController@add')->name('add');
+    Route::post('/add', 'PieceController@store')->name('store');
+    Route::get('/{id}/edit', 'PieceController@edit')->name('edit');
+    Route::post('/{id}/edit', 'PieceController@save')->name('save');
 });
 
 Route::prefix('/publisher')->namespace('Items')->name('publisher.')->group(function (){

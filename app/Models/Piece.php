@@ -24,5 +24,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Piece extends Model
 {
-    //
+    protected $fillable = ['release_id', 'localisation_id'];
+
+    public function release(){
+        return $this->hasOne(Release::class, 'id', 'release_id');
+    }
+
+    public function localization(){
+        return $this->hasOne(Localization::class, 'id', 'localisation_id');
+    }
 }

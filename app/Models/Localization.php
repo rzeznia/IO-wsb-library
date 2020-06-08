@@ -26,5 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Localization extends Model
 {
-    //
+    public function regal(){
+        return $this->hasOne(Regal::class, 'id', 'regal_id');
+    }
 }
