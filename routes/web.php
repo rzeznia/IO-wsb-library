@@ -30,6 +30,10 @@ Route::prefix('/author')->namespace('Items')->name('author.')->group(function ()
 
 Route::prefix('/release')->namespace('Items')->name('release.')->group(function (){
     Route::get('/', 'ReleaseController@index')->name('index');
+    Route::get('/add', 'ReleaseController@add')->name('add');
+    Route::post('/add', 'ReleaseController@store')->name('store');
+    Route::get('/{id}/edit', 'ReleaseController@edit')->name('edit');
+    Route::post('/{id}/edit', 'ReleaseController@save')->name('save');
 });
 
 Route::prefix('/piece')->namespace('Items')->name('piece.')->group(function (){
