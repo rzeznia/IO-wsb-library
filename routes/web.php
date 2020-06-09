@@ -42,6 +42,7 @@ Route::prefix('/piece')->namespace('Items')->name('piece.')->group(function (){
     Route::post('/add', 'PieceController@store')->name('store');
     Route::get('/{id}/edit', 'PieceController@edit')->name('edit');
     Route::post('/{id}/edit', 'PieceController@save')->name('save');
+    Route::get('/{id}/reserve', 'PieceController@reserve')->name('reserve');
 });
 
 Route::prefix('/publisher')->namespace('Items')->name('publisher.')->group(function (){

@@ -33,4 +33,8 @@ class Piece extends Model
     public function localization(){
         return $this->hasOne(Localization::class, 'id', 'localisation_id');
     }
+
+    public function reservation(){
+        return $this->belongsTo(Reservation::class, 'id', 'piece_id');
+    }
 }

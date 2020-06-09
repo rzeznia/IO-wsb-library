@@ -31,9 +31,23 @@ Manage Pieces
                     <td>{{$piece->localization->regal->name}}</td>
                     <td>{{$piece->localization->shelf}}</td>
                     <td>{{$piece->localization->position}}</td>
-                    <td></td>
+                    <td>
+                        @if(isset($piece->reservation->hire))
+                            Borrowed
+                        @elseif(isset($piece->reservation))
+                            Reserved
+                        @else
+                            Free
+                        @endif
+                    </td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('piece.edit', $piece->id) }}">Edit</a>
+                        @if(!isset($piece->reservation))
+                            @if(!in_array($piece->release->title->id, $reservations))
+                                <a class="btn btn-sm btn-success" href="{{route('piece.reserve', $piece->id)}}">Reserve</a>
+                            @endif
+                            <a class="btn btn-sm btn-primary" href="">Assign</a>
+                        @endif
                     </td>
                 </tr>
             @endforeach

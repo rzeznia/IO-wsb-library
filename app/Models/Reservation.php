@@ -26,5 +26,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Reservation extends Model
 {
-    //
+    protected $fillable = ['piece_id', 'user_id', 'target_date'];
+    
+    public function hire(){
+        return $this->belongsTo(Hire::class, 'id', 'reservation_id');
+    }
+
+    public function piece(){
+        return $this->hasOne(Piece::class, 'id', 'piece_id');
+    }
 }

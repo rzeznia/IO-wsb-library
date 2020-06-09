@@ -8,6 +8,7 @@ use App\Interfaces\Items\PieceInterface;
 use App\Interfaces\Items\PublisherInterface;
 use App\Interfaces\Items\ReleaseInterface;
 use App\Interfaces\Items\TitleInterface;
+use App\Interfaces\Operations\ReservationInterface;
 use App\Interfaces\Places\LocalizationInterface;
 use App\Interfaces\Places\RegalInterface;
 use App\Interfaces\User\UserInterface;
@@ -17,6 +18,7 @@ use App\Repositories\Items\PieceRepository;
 use App\Repositories\Items\PublisherRepository;
 use App\Repositories\Items\ReleaseRepository;
 use App\Repositories\Items\TitleRepository;
+use App\Repositories\Operations\ReservationRepository as OperationsReservationRepository;
 use App\Repositories\Places\LocalizationRepository;
 use App\Repositories\Places\RegalRepository;
 use App\Repositories\User\UserRepository;
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RegalInterface::class, RegalRepository::class);
         $this->app->bind(LocalizationInterface::class, LocalizationRepository::class);
         $this->app->bind(PieceInterface::class, PieceRepository::class);
+        $this->app->bind(ReservationInterface::class, OperationsReservationRepository::class);
     }
 
     /**
