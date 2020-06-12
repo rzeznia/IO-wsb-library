@@ -28,5 +28,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Hire extends Model
 {
-    
+    protected $fillable = ['reservation_id', 'piece_id', 'start_date', 'created_at', 'updated_at'];
 }

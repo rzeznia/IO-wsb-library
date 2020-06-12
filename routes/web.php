@@ -55,6 +55,8 @@ Route::prefix('/publisher')->namespace('Items')->name('publisher.')->group(funct
 
 Route::prefix('/reservation')->namespace('Operations')->name('reservation.')->group(function (){
     Route::get('/', 'ReservationController@index')->name('index');
+    Route::get('/{id}/accept', 'ReservationController@accept')->name('accept');
+    Route::get('/{id}/reject', 'ReservationController@reject')->name('reject');
 });
 
 Route::prefix('/hire')->namespace('Operations')->name('hire.')->group(function (){
