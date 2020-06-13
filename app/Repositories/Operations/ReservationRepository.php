@@ -51,9 +51,9 @@ class ReservationRepository extends BaseRepository implements ReservationInterfa
     }
 
     public function getAllReservations($valid = true): ?Collection{
-        //TODO: MAKE PENDING (w. no. hires!!!!)
         if($valid == true){
-            return $this->model->where('target_date', '>=', Carbon::now() )->get();
+            return $this->model->where('target_date', '>=', Carbon::now() )
+            ->doesntHave('hire')->get();
         }else{
             return $this->model->get();
         }
