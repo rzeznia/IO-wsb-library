@@ -8,5 +8,6 @@ use Illuminate\Support\Collection;
 
 interface HireInterface
 {
-    
+    public function returnBook(int $id);
+    public function getAllActiveHires();
 }

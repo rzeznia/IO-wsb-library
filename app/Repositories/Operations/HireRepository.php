@@ -26,4 +26,16 @@ class HireRepository extends BaseRepository implements HireInterface
    /**
     * @return Collection
     */
+
+    public function getAllActiveHires()
+    {
+        return $this->model->whereNull('end_date')->get();
+    }
+
+    public function returnBook(int $id)
+    {
+        $hire = $this->find($id);
+        $hire->end_date = Carbon::now();
+        $hire->save();
+    }
 }

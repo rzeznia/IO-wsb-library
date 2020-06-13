@@ -61,6 +61,7 @@ Route::prefix('/reservation')->namespace('Operations')->name('reservation.')->gr
 
 Route::prefix('/hire')->namespace('Operations')->name('hire.')->group(function (){
     Route::get('/', 'HireController@index')->name('index');
+    Route::get('/{id}/return', 'HireController@return')->name('return');
 });
 
 Route::prefix('/regal')->namespace('Places')->name('regal.')->group(function (){
