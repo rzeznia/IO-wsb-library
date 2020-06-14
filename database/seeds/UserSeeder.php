@@ -22,5 +22,7 @@ class UserSeeder extends Seeder
         $user->library_id = 1;
         $user->phone = "47589345";
         $user->save();
+        $user->assignRole('user');
+        $user->assignRole('admin');
     }
 }

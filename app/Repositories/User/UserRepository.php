@@ -24,4 +24,10 @@ class UserRepository extends BaseRepository implements UserInterface
     * @return Collection
     */
 
+    public function getNextLibraryId(): int
+    {
+        $model = $this->model->latest()->first();
+        return ( $model->library_id +1 );
+    }
+
 }

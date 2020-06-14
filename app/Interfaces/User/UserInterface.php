@@ -6,5 +6,5 @@ use Illuminate\Support\Collection;
 
 interface UserInterface
 {
-
+    public function getNextLibraryId(): int;
 }
