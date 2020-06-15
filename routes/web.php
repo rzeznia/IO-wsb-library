@@ -9,6 +9,9 @@ Route::get('/', 'DashController@index')->name('dash');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
+
+    Route::get('/', 'DashController@index')->name('dash');
+
     Route::prefix('/user')->namespace('User')->name('user.')->group(function (){
         Route::get('/', 'UserController@index')->name('index');
     });

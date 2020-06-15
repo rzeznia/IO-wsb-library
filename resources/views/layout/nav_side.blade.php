@@ -1,8 +1,12 @@
 <div class="sidebar-sticky">
-    TODO: ADMIN/USER MODE LAYOUT
-    @include('layout.nav_admin_list')
+    @if(strpos(Route::currentRouteName(), 'admin.') !== false)
+        @include('layout.nav_admin_list')
+    @else
+        @include('layout.nav_regular_list')
+    @endif
+
     @if(isset($results))
-        @include('contents.search.compo.filters')
+    @include('contents.search.compo.filters')
     @endif
 </div>
 <style>
