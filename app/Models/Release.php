@@ -43,4 +43,8 @@ class Release extends Model
     public function publisher(){
         return $this->hasOne(Publisher::class, 'id', 'publisher_id');
     }
+
+    public function piece(){
+        return $this->hasMany(Piece::class, 'release_id', 'id');
+    }
 }
