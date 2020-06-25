@@ -9,5 +9,4 @@ interface ReleaseInterface
 {
     public function getFullReleases(): ?Collection;
     public function getAllData(): ?Collection;
-    public function makeReservation(array $data): Model;
 }

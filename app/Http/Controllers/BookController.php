@@ -32,11 +32,11 @@ class BookController extends Controller
         if(!$this->reservation_interface->checkIsUserAlreadyReservedBook(\Auth::user()->id, $release->id)){
             //find free
             $free_books = $this->piece_interface->findFreePieces($release->id);
-            if(count($free_books) > 1){
+            if(count($free_books) > 0){
                 $data['user_id'] = \Auth::user()->id;
                 $data['piece_id'] = $free_books[0]->id;
                 $data['target_date'] = Carbon::now()->addWeeks(2)->format('Y-m-d H:i:s');
-                $reservation = $this->release_interface->makeReservation($data);
+                $reservation = $this->reservation_interface->create($data);
                 return redirect()->route('book.index');
             }
         }else{

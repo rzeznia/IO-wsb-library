@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Operations\HireInterface;
+use App\Interfaces\Operations\ReservationInterface;
 
 class MyBookController extends Controller
 {
-    public function __construct()
+    protected $hire_interface;
+    protected $reservation_interface;
+    public function __construct(HireInterface $hire_interface, ReservationInterface $reservation_interface)
     {
         $this->middleware('auth');
+        $this->hire_interface = $hire_interface;
+        $this->reservation_interface = $reservation_interface;
     }
 
     function index(){
-        return view('contents.admin.title.index', compact('titles'));
+        $reservations = $this->reservation_interface->getUserReservations(\Auth::user()->id);
+        $this->reservation_interface->markHires($reservations);
+        return view('contents.my.index', compact('reservations'));
     }
 }

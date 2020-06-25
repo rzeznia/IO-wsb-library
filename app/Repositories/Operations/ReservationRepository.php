@@ -80,7 +80,7 @@ class ReservationRepository extends BaseRepository implements ReservationInterfa
     {
         $data = $this->model->where('user_id', $user_id)->with('piece.release')->get();
         foreach($data as $reservation){
-            if($reservation->piece->release_id = $release_id)
+            if($reservation->piece->release_id == $release_id)
                 return true;
         }
         return false;
@@ -101,5 +101,15 @@ class ReservationRepository extends BaseRepository implements ReservationInterfa
             if($reservation->piece->release_id = $release_id)
                 return $reservation->id;
         }
+    }
+
+    public function markHires(Collection $reservations): Collection
+    {
+        foreach($reservations as $reservation){
+            if($this->checkIsUserAlreadyBorrowedBook($reservation->id)){
+                $reservation->borrowed = true;
+            }
+        }
+        return $reservations;
     }
 }

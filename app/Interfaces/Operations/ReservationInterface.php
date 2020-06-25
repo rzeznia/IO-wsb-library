@@ -16,4 +16,5 @@ interface ReservationInterface
     public function checkIsUserAlreadyReservedBook(int $user_id, int $release_id): bool;
     public function checkIsUserAlreadyBorrowedBook(int $reservation_id): bool;
     public function getReservationId(int $user_id, int $release_id): int;
+    public function markHires(Collection $reservations): Collection;
 }

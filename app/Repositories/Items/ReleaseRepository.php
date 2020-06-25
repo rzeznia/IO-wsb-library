@@ -43,6 +43,8 @@ class ReleaseRepository extends BaseRepository implements ReleaseInterface
                 $reservation_id = $this->reservation_interface->getReservationId(\Auth::user()->id, $record->id);
                 if($this->reservation_interface->checkIsUserAlreadyBorrowedBook($reservation_id))
                     $record->borrowed = true;
+            }else{
+                $data->reject($record);
             }
             foreach($record->piece as $pc){
                 if(!$pc->reservation){
@@ -53,10 +55,4 @@ class ReleaseRepository extends BaseRepository implements ReleaseInterface
         }
         return $data;
     }
-
-    public function makeReservation(array $data): Model
-    {
-        return $this->reservation_interface->create($data);
-    }
-
 }

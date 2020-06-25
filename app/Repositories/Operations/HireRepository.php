@@ -3,6 +3,7 @@
 namespace App\Repositories\Operations;
 
 use App\Interfaces\Operations\HireInterface;
+use App\Interfaces\Operations\ReservationInterface;
 use App\Models\Hire;
 use App\Repositories\BaseRepository;
 use Carbon\Carbon;
