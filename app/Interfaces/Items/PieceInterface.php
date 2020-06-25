@@ -6,5 +6,5 @@ use Illuminate\Support\Collection;
 
 interface PieceInterface
 {
-
+    public function findFreePieces(int $release_id):?Collection;
 }

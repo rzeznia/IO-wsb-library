@@ -75,4 +75,31 @@ class ReservationRepository extends BaseRepository implements ReservationInterfa
         $reservation->save();
         return $reservation;
     }
+
+    public function checkIsUserAlreadyReservedBook(int $user_id, int $release_id): bool
+    {
+        $data = $this->model->where('user_id', $user_id)->with('piece.release')->get();
+        foreach($data as $reservation){
+            if($reservation->piece->release_id = $release_id)
+                return true;
+        }
+        return false;
+    }
+
+    public function checkIsUserAlreadyBorrowedBook(int $reservation_id): bool
+    {
+        $data = $this->hire_interface->model->where('reservation_id', $reservation_id)->first();
+        if($data)
+           return true;
+        return false;
+    }
+
+    public function getReservationId(int $user_id, int $release_id): int
+    {
+        $data = $this->model->where('user_id', $user_id)->with('piece.release')->get();
+        foreach($data as $reservation){
+            if($reservation->piece->release_id = $release_id)
+                return $reservation->id;
+        }
+    }
 }

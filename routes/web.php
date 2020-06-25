@@ -76,3 +76,16 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('/', 'LocalizationController@index')->name('index');
     });
 });
+
+Route::prefix('/book')->name('book.')->group(function (){
+    Route::get('/', 'BookController@index')->name('index');
+    Route::get('/{id}/reserve', 'BookController@make_reservation')->name('reserve');
+});
+
+Route::prefix('/my')->name('mybook.')->group(function (){
+    Route::get('/', 'MyBookController@index')->name('index');
+});
+
+Route::prefix('/panel')->name('panel.')->group(function (){
+    Route::get('/', 'PanelController@index')->name('index');
+});

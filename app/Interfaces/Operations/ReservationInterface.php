@@ -13,4 +13,7 @@ interface ReservationInterface
     public function getAllReservations($valid = true): ?Collection;
     public function acceptReservation(int $id): ?Model;
     public function rejectReservation(int $id): ?Model;
+    public function checkIsUserAlreadyReservedBook(int $user_id, int $release_id): bool;
+    public function checkIsUserAlreadyBorrowedBook(int $reservation_id): bool;
+    public function getReservationId(int $user_id, int $release_id): int;
 }

@@ -6,7 +6,6 @@ Borrow Book
 
 @section('content')
     <div class="buttons-grid">
-        <a class="btn btn-sm btn-success" href="{{route('admin.release.add')}}">Add new release</a>
         todo filtering
     </div>
     @if(count($books) > 0)
@@ -22,7 +21,7 @@ Borrow Book
                 <td>Actions</td>
             </thead>
             <tbody>
-                {{-- {{dd($releases)}} --}}
+                {{-- {{dd($books)}} --}}
                 @foreach($books as $book)
                     <tr>
                         <td>{{$loop->iteration}}</td>
@@ -30,10 +29,21 @@ Borrow Book
                         <td>{{$book->release}}</td>
                         <td>{{$book->publisher->name}}</td>
                         <td>{{$book->ISBN}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>Free: {{$book->free_count}}</td>
                         <td>
-                            {{-- <a class="btn btn-sm btn-outline-primary" href="{{route('admin.release.edit', $release->id)}}">Edit</a> --}}
+                            @if($book->free_count > 0) Yes @else No @endif
+
+                        </td>
+                        <td>
+                            @if($book->reserved)
+                                @if($book->borrowed)
+                                    <a class="btn btn-sm btn-outline-success" href="#" disabled>Borrowed</a>
+                                @else
+                                    <a class="btn btn-sm btn-outline-warning" href="#" disabled>Reserved</a>
+                                @endif
+                            @else
+                                <a class="btn btn-sm btn-outline-primary" href="{{route('book.reserve', $book->id)}}">Make Reservation</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
