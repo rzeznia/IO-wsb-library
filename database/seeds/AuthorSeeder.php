@@ -17,5 +17,11 @@ class AuthorSeeder extends Seeder
         $a->surname = "Rowling";
         $a->country = "UK";
         $a->save();
+
+        $a = new Author();
+        $a->name = "Józef";
+        $a->surname = "Zbagien";
+        $a->country = "CZ";
+        $a->save();
     }
 }

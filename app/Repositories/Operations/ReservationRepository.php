@@ -71,9 +71,11 @@ class ReservationRepository extends BaseRepository implements ReservationInterfa
     public function rejectReservation(int $id): ?Model
     {
         $reservation = $this->find($id);
-        $reservation->target_date = Carbon::now()->subHour();
-        $reservation->save();
-        return $reservation;
+        // $reservation->target_date = Carbon::now()->subHour();
+        // $reservation->save();
+        // return $reservation;
+        $reservation->delete();
+        return null;
     }
 
     public function checkIsUserAlreadyReservedBook(int $user_id, int $release_id): bool

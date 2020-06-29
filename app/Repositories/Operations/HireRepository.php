@@ -5,6 +5,7 @@ namespace App\Repositories\Operations;
 use App\Interfaces\Operations\HireInterface;
 use App\Interfaces\Operations\ReservationInterface;
 use App\Models\Hire;
+use App\Models\Reservation;
 use App\Repositories\BaseRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -36,7 +37,8 @@ class HireRepository extends BaseRepository implements HireInterface
     public function returnBook(int $id)
     {
         $hire = $this->find($id);
-        $hire->end_date = Carbon::now();
-        $hire->save();
+        $reservation = Reservation::where('id', $hire->reservation_id);
+        $hire->delete();
+        $reservation->delete();
     }
 }
